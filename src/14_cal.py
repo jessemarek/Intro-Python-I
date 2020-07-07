@@ -33,16 +33,20 @@ from datetime import datetime
 
 args = sys.argv
 
-if len(args) == 2:
-    year = datetime.now().year
-    month = args[1]
-
-elif len(args) == 3:
-    year = args[2]
-    month = args[1]
-
-else:
+if len(args) == 1:
     year = datetime.now().year
     month = datetime.now().month
+    print(f"\n{calendar.month(year, month)}")
 
-print(calendar.month(year, month))
+elif len(args) == 2:
+    year = datetime.now().year
+    month = int(args[1])
+    print(f"\n{calendar.month(year, month)}")
+
+elif len(args) == 3:
+    year = int(args[2])
+    month = int(args[1])
+    print(f"\n{calendar.month(year, month)}")
+
+else:
+    print("Usage: py <filename>.py [month] [year]")
